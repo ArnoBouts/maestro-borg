@@ -19,6 +19,12 @@ function quit {
 }
 
 if [ -n "${SSHFS:-}" ]; then
+    if [ -n "${SSHFS_REPO:-}" ]; then
+        if [ "${SSHFS: -1}" != "/" ]; then
+            SSHFS="${SSHFS}/"
+        fi
+        SSHFS="${SSHFS}${SSHFS_REPO}"
+    fi
     if [ -n "${SSHFS_IDENTITY_FILE:-}" ]; then
         if [ ! -f "$SSHFS_IDENTITY_FILE" ] && [ -n "${SSHFS_GEN_IDENTITY_FILE:-}" ]; then
             ssh-keygen -t rsa -b 4096 -N '' -f "$SSHFS_IDENTITY_FILE"
