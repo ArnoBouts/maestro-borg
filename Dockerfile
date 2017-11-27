@@ -1,5 +1,7 @@
 FROM debian
 
+ENV BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK yes
+
 RUN apt-get update && apt-get install --yes --no-install-recommends curl ca-certificates sshfs
 
 RUN curl -L -o /usr/local/bin/borg https://github.com/borgbackup/borg/releases/download/1.1.1/borg-linux64
