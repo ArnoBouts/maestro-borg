@@ -144,7 +144,7 @@ if [ "$1" = "create" ]; then
         borg check -v --show-rc
     fi
 
+    quit
 fi
 
-quit
-
+borg list
