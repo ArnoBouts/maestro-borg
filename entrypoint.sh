@@ -64,6 +64,9 @@ else
 fi
 
 DEFAULT_ARCHIVE="${HOSTNAME}_$(date +%Y-%m-%d)"
+if [ -n "${ARCHIVE_NAME}" ]; then
+    ARCHIVE="${ARCHIVE:-${ARCHIVE_NAME}_$(date +%Y-%m-%d)}"
+fi
 ARCHIVE="${ARCHIVE:-$DEFAULT_ARCHIVE}"
 
 if [ "$1" = "info" ]; then
