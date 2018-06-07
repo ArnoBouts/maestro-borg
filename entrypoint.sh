@@ -146,4 +146,4 @@ if [ "$1" = "create" ]; then
     quit
 fi
 
-borg list
+borg $@
