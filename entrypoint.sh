@@ -75,6 +75,7 @@ fi
 
 if [ "$1" = "extract" ]; then
 
+    EXTRACT_TO="${EXTRACT_TO:-/restore}"
     mkdir -p "$EXTRACT_TO"
     cd "$EXTRACT_TO"
     borg extract -v --list --show-rc ::"$ARCHIVE" ${EXTRACT_WHAT:-}
